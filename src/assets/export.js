@@ -5,7 +5,7 @@
 // import FILENAME(PASCALCASE) from "./FILENAME(CAMELCASE).png";
 import Logo from "./logo.png";
 import NoInternetImage from "./nointernet.png";
-import Success from "./SuccessCheck.png";
+import Success from "./successcheck.png";
 import whitedashboard from "./darkCategory.png";
 import lightdashboard from "./lightCategory.png";
 import whiteUser from "./darkUser.png";
