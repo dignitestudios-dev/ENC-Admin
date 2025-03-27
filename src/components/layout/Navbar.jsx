@@ -4,6 +4,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";
 import ProfileDropdown from "../global/ProfileDropdown";
 import { useNavigate } from "react-router";
+import { beardGuy } from "../../assets/export";
 
 const Navbar = () => {
   const [isProfileOpen, setisProfileOpen] = useState(false);
@@ -17,16 +18,16 @@ const Navbar = () => {
             onClick={() => setisProfileOpen(!isProfileOpen)}
           >
             <img
-              // src={beardGuy}
+              src={beardGuy}
               className="rounded-full w-8 h-8 lg:h-12 lg:w-12"
               alt=""
             />
             <div className="lg:block hidden">
-              <h4 className="font-[400] text-[12px] lg:text-[16px] text-white">
+              <h4 className="font-[400] text-[12px] lg:text-[16px] text-[#0A150F]">
                 Austin Robertson
               </h4>
-              <span className="font-[400] text-[10px] lg:text-[13px] text-white">
-                Administrator
+              <span className="font-[400] text-[12px] lg:text-[13px] text-[#0A150F80]">
+                Admin
               </span>
             </div>
             <div>

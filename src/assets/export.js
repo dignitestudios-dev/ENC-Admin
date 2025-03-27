@@ -29,6 +29,7 @@ import circle from "./ecclips.png";
 import filterIcon from "./filter.png";
 import datePickerCalendar from "./agenda.png";
 import passwordReset from "./password-reset.png";
+import beardGuy from "./beardGuy.png";
 
 // export {
 //     FILENAME(PASCALCASE)
@@ -36,6 +37,7 @@ import passwordReset from "./password-reset.png";
 
 export {
   lightTime,
+  beardGuy,
   whiteTime,
   passwordReset,
   datePickerCalendar,
