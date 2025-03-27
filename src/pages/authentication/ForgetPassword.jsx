@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
-import { forgetValues } from "../../init/authentication/dummyLoginValues";
-import { forgotSchema } from "../../schema/authentication/dummyLoginSchema";
+import { forgetValues } from "../../init/authentication/LoginValues";
+import { forgotSchema } from "../../schema/authentication/LoginSchema";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input from "../../components/global/Input";
 import { useNavigate } from "react-router";

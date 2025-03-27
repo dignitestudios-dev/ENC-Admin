@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import Insight from "../../../components/app/Dashboard/Insight";
+import Insight from "../../../components/app/dashboard/Insight";
 import { appointments, newUsers } from "../../../static/Users";
 
 const Home = () => {

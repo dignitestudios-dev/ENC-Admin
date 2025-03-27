@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import { FaArrowLeft, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 // import { useNavigate } from "react-router";
-import { ChangedValues } from "../../init/authentication/dummyLoginValues";
-import { ChangedSchema } from "../../schema/authentication/dummyLoginSchema";
+
 import Input from "../../components/global/Input";
 import UpdatePasswordSuccessfully from "../../components/authentication/UpdatePasswordSuccessFully";
 import { useNavigate } from "react-router";
+import { ChangedValues } from "../../init/authentication/LoginValues";
+import { ChangedSchema } from "../../schema/authentication/LoginSchema";
 
 export default function ChangePassword() {
   const [isOpen, setIsOpen] = useState(false);

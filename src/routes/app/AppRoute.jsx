@@ -1,8 +1,8 @@
 import Appointment from "../../pages/app/appointment/Appointment";
 import AppointmentDetail from "../../pages/app/appointment/AppointmentDetail";
-import Home from "../../pages/app/Home/Home";
+import Home from "../../pages/app/home/Home";
 import TimeSlots from "../../pages/app/timeslot/TimeSlots";
-import User from "../../pages/app/User/User";
+import User from "../../pages/app/user/User";
 import UserDetail from "../../pages/app/user/UserDetail";
 import UpdatePassword from "../../pages/authentication/UpdatePassword";
 

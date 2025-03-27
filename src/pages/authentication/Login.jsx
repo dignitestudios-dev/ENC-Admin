@@ -1,11 +1,11 @@
 import { useLogin } from "../../hooks/api/Post";
 import { processLogin } from "../../lib/utils";
 import { useFormik } from "formik";
-import { loginValues } from "../../init/authentication/dummyLoginValues";
-import { signInSchema } from "../../schema/authentication/dummyLoginSchema";
 import { NavLink, useNavigate } from "react-router";
 import { FiLoader } from "react-icons/fi";
 import Input from "../../components/global/Input";
+import { loginValues } from "../../init/authentication/LoginValues";
+import { signInSchema } from "../../schema/authentication/LoginSchema";
 
 const Login = () => {
   const { loading, postData } = useLogin();
