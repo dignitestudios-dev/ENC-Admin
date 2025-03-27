@@ -13,8 +13,8 @@ export default function AppointmentDetail() {
         <h1 className="text-2xl font-bold">Appointment Details</h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">        
-        <div className="lg:col-span-2 border border-gray-200 rounded-lg p-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">        
+        <div className="lg:col-span-8 border border-gray-200 rounded-lg p-6">
           <h2 className="text-xl font-bold mb-6">User Details</h2>
 
           <div className="flex items-center mb-8">
@@ -86,7 +86,7 @@ export default function AppointmentDetail() {
             </ul>
           </div>
         </div>
-        <div className="border border-gray-200 h-[100%] max-h-[420px] rounded-lg p-6">
+        <div className="lg:col-span-4 border border-gray-200 h-[100%] max-h-[420px] rounded-lg p-6">
           <h2 className="text-xl font-bold mb-6">Appointment Detail</h2>
 
           <div className="space-y-4 mb-8">

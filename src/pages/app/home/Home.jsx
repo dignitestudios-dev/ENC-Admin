@@ -76,7 +76,7 @@ const Home = () => {
                       <td className="px-6 py-4">{item?.date}</td>
                       <td className="px-6 py-4">{item?.time}</td>
                       <td className="px-6 py-4">
-                        <NavLink to={"/"} className={"text-[#181818] underline font-[400] text-[13px]"} >View details</NavLink>
+                        <NavLink to={`/user/${i}`} className={"text-[#181818] underline font-[400] text-[13px]"} >View details</NavLink>
                       </td> 
                     </tr>
                   ))}

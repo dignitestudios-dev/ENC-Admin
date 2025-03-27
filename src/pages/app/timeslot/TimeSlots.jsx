@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiDollarSign } from "react-icons/fi";
 import TimeSlotModal from "../../../components/timeslot/timeSlotModal";
 import { CiTrash } from "react-icons/ci";
+import { DollarIcon } from "../../../assets/export";
 
 export default function TimeSlots() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +18,12 @@ export default function TimeSlots() {
           Update your Time slots and Price
         </p>
         <div className="mt-4">
-          <p className="text-[#181818] font-[400] text-[14px]">
+          <p className="text-[#181818] font-[500] text-[14px]">
             Add time Slots
           </p>
           <div
             onClick={() => setIsOpen(true)}
-            className="cursor-pointer flex items-center justify-center font-[400] text-[12px] hover:border-dashed h-[105px] border mt-2 border-[#BEBEBE] rounded-[12px]"
+            className="cursor-pointer flex items-center justify-center underline  font-[400] text-[12px] hover:border-dashed h-[105px] border mt-2 border-[#BEBEBE] rounded-[12px]"
           >
             + Add New Slots
           </div>
@@ -37,16 +38,16 @@ export default function TimeSlots() {
         )}
 
         <div className="mt-3">
-          <label htmlFor="" className="text-[#181818] font-[400] text-[14px]">
+          <label htmlFor="" className="text-[#181818] font-[500] text-[14px]">
             Slot Price
           </label>
-          <div className="flex items-center mb-3 w-full p-1 px-2 border rounded-[8px] overflow-hidden">
-            <div className="flex items-center pl-1">
-              <FiDollarSign className="h-4 w-4 text-[#727272]" />
+          <div className="flex items-center mb-3 w-full p-1 px-2 border mt-2 rounded-[12px] overflow-hidden">
+            <div className="flex items-center pl-1 font-[400]">
+             <img src={DollarIcon}  alt="dollar" className=" h-3" />
             </div>
             <input
               type="text"
-              className="flex-1 py-2 h-[40px] rounded-[12px] px-3 bg-transparent border-none outline-none text-gray-700"
+              className="flex-1  h-[40px] !rounded-[12px] px-3  bg-transparent border-none outline-none text-gray-700"
             />
           </div>
         </div>

@@ -30,12 +30,16 @@ import filterIcon from "./filter.png";
 import datePickerCalendar from "./agenda.png";
 import passwordReset from "./password-reset.png";
 import beardGuy from "./beardGuy.png";
+import logoutIcon from "./Logout.png";
+import DollarIcon from "./dollar.png";
 
 // export {
 //     FILENAME(PASCALCASE)
 // }
 
 export {
+  DollarIcon,
+  logoutIcon,
   lightTime,
   beardGuy,
   whiteTime,

@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router";
 import { sidebarData } from "../../static/Sidebar";
-import { Logo } from "../../assets/export";
+import { Logo, logoutIcon } from "../../assets/export";
 import { IoMdClose } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
 import LogOutModal from "../authentication/LogOutModal";
@@ -57,7 +57,7 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
         );
       })}
         <NavLink onClick={()=>setIsOpen(true)} className={"text-sm w-full h-12 flex items-center mt-4 gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"}>
-        <IoLogOut size={28} /> Logout
+          <img src={logoutIcon} className="w-4 " alt="loguticon" /> Logout
           </NavLink>
 
     </div>
