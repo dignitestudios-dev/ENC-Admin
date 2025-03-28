@@ -12,16 +12,9 @@ export const cardData = [
     id: 2,
     icon: calendar,
     value: "56",
-    description: "Upcoming Appointments",
+    description: "Total Appointments",
     borderColor: ""
-  },
-  {
-    id: 3,
-    icon: checkDate,
-    value: "512",
-    description: "Completed Appointments",
-    borderColor: ""
-  },
+  }, 
   {
     id: 4,
     icon: date,

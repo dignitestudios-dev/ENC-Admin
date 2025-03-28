@@ -49,7 +49,7 @@ const Login = () => {
           <div className="w-full -mt-1  flex items-center justify-end">
             <NavLink
               to={"/auth/forgot-password"}
-              className="text-black hover:no-underline hover:text-black text-[16px] font-normal leading-[20.4px]"
+              className="text-black hover:no-underline hover:text-black text-[12px] font-normal leading-[20.4px]"
             >
               Forgot Password?
             </NavLink>

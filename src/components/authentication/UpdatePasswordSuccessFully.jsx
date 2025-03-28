@@ -36,7 +36,7 @@ const UpdatePasswordSuccessfully = ({ isOpen, setIsOpen, update }) => {
             <img src={Success} className="w-[80px]" alt="CheckBox" />
             <h3 className="text-2xl text-[#000505]">
               {" "}
-              {!update ? "Password Changed" : "Password updated Successfully!"}
+              {update ? "Password Changed" : "Password updated Successfully!"}
             </h3>
              <p className="text-[#565656] text-[16px] font" > {update ? "Your password has been updated successfully." : ""}</p>
           </div>

@@ -69,7 +69,7 @@ export default function ChangePassword() {
             type="submit"
             className="w-full h-[49px] rounded-[10px] bg-[#000000] text-white flex gap-2 items-center justify-center text-md font-medium"
           >
-            <span>Change Password</span>
+            <span>Update</span>
           </button>
         </form>
       </div>

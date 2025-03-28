@@ -79,7 +79,7 @@ export default function VerifyOtp() {
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   onPaste={handlePaste}
                   ref={(el) => (inputs.current[index] = el)}
-                  className="w-[50px] h-[50px] rounded-[14px] bg-transparent outline-none text-center border-[1px] border-[#00000030] text-white text-2xl focus-within:border-[#121820] flex items-center justify-center"
+                  className="w-[50px] h-[50px] rounded-[14px] bg-transparent outline-none text-center border-[1px] border-[#00000030] text-2xl focus-within:border-[#121820] flex items-center justify-center"
                 />
               );
             })}

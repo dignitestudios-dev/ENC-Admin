@@ -48,25 +48,18 @@ export default function DatePicker() {
       selectedDate
     );
 
-  const setDateValue = (date) => () => {
-    console.log(date);
-    setSelectedDate(
-      new Date(
+    const setDateValue = (date) => () => {
+      const newDate = new Date(
         datepickerHeaderDate.getFullYear(),
         datepickerHeaderDate.getMonth(),
         date
-      )
-    );
-
-    setSelectedDate(
-      new Date(
-        datepickerHeaderDate.getFullYear(),
-        datepickerHeaderDate.getMonth(),
-        date
-      ).toLocaleDateString()
-    );
-    setShowDatepicker(false);
-  };
+      );
+      
+      setSelectedDate(newDate); // Set the Date object directly, not a string
+      
+      setShowDatepicker(false);
+    };
+    
 
 
 

@@ -21,12 +21,12 @@ export default function AppointmentDetail() {
             <div className="w-20 h-20 bg-gray-200 rounded-full mr-6"></div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 flex-1">
               <div>
-                <p className="text-gray-500 text-sm">FULL NAME</p>
-                <p>Sarah Lee</p>
+                <p className="text-gray-500 font-[600] text-sm">FULL NAME</p>
+                <p className="text-[#181818] font-[400] text-sm">Sarah Lee</p>
               </div>
               <div>
-                <p className="text-gray-500 text-sm">EMAIL ADDRESS</p>
-                <p>sarah.lee@fakemail.net</p>
+                <p className="text-gray-500 font-[600] text-sm">EMAIL ADDRESS</p>
+                <p className="text-[#181818] font-[400] text-sm">sarah.lee@fakemail.net</p>
               </div>
             </div>
           </div>
