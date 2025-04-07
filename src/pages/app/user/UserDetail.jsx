@@ -9,7 +9,7 @@ export default function UserDetail() {
         <button onClick={() => navigate(-1)} className="mr-4">
           <FaArrowLeft className="h-5 w-5" />
         </button>
-        <h1 className="text-2xl font-bold">Appointment Details</h1>
+        <h1 className="text-2xl font-bold">User Details</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -30,7 +30,7 @@ export default function UserDetail() {
               </div>
             </div>
           </div>
-
+{/* 
           <div className="border-t border-gray-200 pt-6">
             <h3 className="text-lg font-semibold mb-4">Appointment Summary</h3>
 
@@ -84,7 +84,7 @@ export default function UserDetail() {
                 </div>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

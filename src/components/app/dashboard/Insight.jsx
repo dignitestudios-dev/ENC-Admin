@@ -3,11 +3,11 @@ import { cardData } from "../../../static/CardData";
 
 export default function Insight() {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="grid grid-cols-4  gap-4">
       {cardData.map(card => (
         <div
           key={card.id}
-          className={`flex items-center gap-2 p-4 bg-[#FFFFFF] rounded-[12px] shadow-sm min-w-[220px] ${card.borderColor} ${
+          className={`flex items-center gap-2 p-4 bg-[#FFFFFF] rounded-[12px] shadow-sm  ${card.borderColor} ${
             card.borderColor && "border-2"
           }`}
         >

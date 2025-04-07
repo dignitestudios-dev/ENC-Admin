@@ -1,19 +1,18 @@
-import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router";
 
 export default function AppointmentDetail() {
-    const navigate=useNavigate("");
+  const navigate = useNavigate("");
   return (
     <div className="max-w-6xl mx-auto bg-[#FFFFFF] rounded-[16px] p-6">
       <div className="flex items-center mb-6">
-        <button onClick={()=>navigate(-1)} className="mr-4">
+        <button onClick={() => navigate(-1)} className="mr-4">
           <FaArrowLeft className="h-5 w-5" />
         </button>
         <h1 className="text-2xl font-bold">Appointment Details</h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">        
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8 border border-gray-200 rounded-lg p-6">
           <h2 className="text-xl font-bold mb-6">User Details</h2>
 
@@ -25,15 +24,18 @@ export default function AppointmentDetail() {
                 <p className="text-[#181818] font-[400] text-sm">Sarah Lee</p>
               </div>
               <div>
-                <p className="text-gray-500 font-[600] text-sm">EMAIL ADDRESS</p>
-                <p className="text-[#181818] font-[400] text-sm">sarah.lee@fakemail.net</p>
+                <p className="text-gray-500 font-[600] text-sm">
+                  EMAIL ADDRESS
+                </p>
+                <p className="text-[#181818] font-[400] text-sm">
+                  sarah.lee@fakemail.net
+                </p>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-6">
             <h3 className="text-lg font-semibold mb-4">Appointment Summary</h3>
-
             <ul className="space-y-6">
               <li className="flex">
                 <span className="mr-2">•</span>

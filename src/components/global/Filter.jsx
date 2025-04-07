@@ -2,7 +2,6 @@ import { FaXmark } from "react-icons/fa6";
 import { filterIcon } from "../../assets/export";
 import DatePicker from "./DatePicker";
 import { useState } from "react";
-import { CiSearch } from "react-icons/ci";
 
 export default function Filter() {
   const [isOpen, setIsOpen] = useState(false);

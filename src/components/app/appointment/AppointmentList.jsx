@@ -55,11 +55,11 @@ export default function AppointmentList() {
                 <tr key={i} className="cursor-pointer"   >
                   <th
                     scope="row"
-                    className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >
                     <div className="flex gap-2 items-center">
                       <img src={item?.avatar} alt="" />
-                      <p>{item?.name}</p>
+                      <p className="font-[400] text-[13px]">{item?.name}</p>
                     </div>
                   </th>
                   <td className="px-6 py-4">{item?.email}</td>

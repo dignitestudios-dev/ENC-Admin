@@ -24,12 +24,12 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
           <IoMdClose className="text-2xl" color="white" />
         </button>
       </div>
-      <div className="flex justify-start ">
+      <div className="flex justify-start mb-8">
         <img
           src={Logo}
           loading="lazy"
           alt="logo-organization"
-          className="w-[100px]"
+          className="w-[87px] h-[94px]"
         />
       </div>
       {sidebarData?.map((sidebar) => {
@@ -38,8 +38,8 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
             key={sidebar?.link}
             className={({ isActive }) =>
               isActive
-                ? "text-sm border w-full h-12 flex mt-4 items-center rounded-[4px] gap-5 px-3 justify-start border-[#181818] bg-[#181818] text-white font-medium "
-                : "text-sm w-full h-12 flex items-center mt-4 gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"
+                ? "text-[12px] border w-full h-[40px] flex -leading-[0.5px] items-center rounded-[4px] gap-2 px-3 justify-start border-[#181818] bg-[#181818] text-white font-medium "
+                : "text-[12px] w-full h-[40px] flex items-center -leading-[0.5px] gap-2 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"
             }
             to={sidebar?.link}
           >
@@ -56,7 +56,7 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
           </NavLink>
         );
       })}
-        <NavLink onClick={()=>setIsOpen(true)} className={"text-sm w-full h-12 flex items-center mt-4 gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"}>
+        <NavLink onClick={()=>setIsOpen(true)} className={"text-sm w-full h-12 flex items-center gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"}>
           <img src={logoutIcon} className="w-4 " alt="loguticon" /> Logout
           </NavLink>
 

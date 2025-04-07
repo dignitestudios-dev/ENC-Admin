@@ -189,8 +189,8 @@ export default function DatePicker() {
                           <button
                             disabled={isPastDate}
                             onClick={setDateValue(d)}
-                            className={`cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out duration-100 
-          ${isToday(d) ? "text-[#0A8A33]" : "hover:text-[#0A8A33]"} 
+                            className={`cursor-pointer text-center text-sm leading-none rounded-full transition ease-in-out duration-100 
+          ${isToday(d) ? "text-[white] bg-[#181818] w-6 shadow-2xl flex items-center justify-center h-6 rounded-full text-xs " : "hover:text-[#4f4f4f]"} 
           ${getDay(dateToCheck) === 0 ? "text-red-500" : ""} 
           ${isPastDate ? "opacity-50 cursor-not-allowed" : ""}
         `}

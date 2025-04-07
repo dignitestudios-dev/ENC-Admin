@@ -10,7 +10,7 @@ export default function TimeSlots() {
   console.log(timeSlots);
   return (
     <div className="mx-auto bg-[#FFFFFF] h-full rounded-[16px] px-6 py-6">
-      <div className="md:w-[360px]">
+      <div className="md:w-[400px]">
         <h3 className="text-[#202224] font-[600] text-[32px] ">
           Time Slots Management
         </h3>
