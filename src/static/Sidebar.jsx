@@ -1,4 +1,4 @@
-import { lightCalendar, lightdashboard, lightLock,lightTime,lightUser,whiteCalendar, whitedashboard,whiteLock, whiteTime, whiteUser } from "../assets/export";
+import { darkContact, lightCalendar, lightContact, lightdashboard, lightLock,lightTime,lightUser,whiteCalendar, whitedashboard,whiteLock, whiteTime, whiteUser } from "../assets/export";
 
 export const sidebarData = [
   {
@@ -24,6 +24,13 @@ export const sidebarData = [
     icon: lightTime,
     whiteIcon:whiteTime,
     link: "/timeslot",
+  }, 
+  
+  {
+    title: "Contacts",
+    icon: lightContact,
+    whiteIcon:darkContact,
+    link: "/contact",
   }, 
   
   {

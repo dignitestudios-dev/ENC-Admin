@@ -32,12 +32,16 @@ import passwordReset from "./password-reset.png";
 import beardGuy from "./beardGuy.png";
 import logoutIcon from "./Logout.png";
 import DollarIcon from "./dollar.png";
+import lightContact from "./profile-light.png";
+import darkContact from "./profile-dark.png";
 
 // export {
 //     FILENAME(PASCALCASE)
 // }
 
 export {
+  lightContact,
+  darkContact,
   DollarIcon,
   logoutIcon,
   lightTime,

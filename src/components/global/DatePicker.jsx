@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import {
   format,
   subMonths,
@@ -11,7 +11,7 @@ import {
 import { FaChevronRight } from "react-icons/fa6";
 import { datePickerCalendar } from "../../assets/export";
 
-export default function DatePicker() {
+export default function DatePicker({ selectDate, onDateChange }) {
   const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const [dayCount, setDayCount] = useState([]);
   const [blankDays, setBlankDays] = useState([]);
@@ -19,14 +19,13 @@ export default function DatePicker() {
   const [datepickerHeaderDate, setDatepickerHeaderDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   useEffect(() => {
-      const parsedDate = new Date(selectedDate);
-      if (!isNaN(parsedDate)) {
-        setSelectedDate(parsedDate);
-      }
+    const parsedDate = new Date(selectedDate);
+    if (!isNaN(parsedDate)) {
+      setSelectedDate(parsedDate);
+    }
   }, []);
 
   const [type, setType] = useState("date");
-
 
   const increment = () => {
     switch (type) {
@@ -48,20 +47,17 @@ export default function DatePicker() {
       selectedDate
     );
 
-    const setDateValue = (date) => () => {
-      const newDate = new Date(
-        datepickerHeaderDate.getFullYear(),
-        datepickerHeaderDate.getMonth(),
-        date
-      );
-      
-      setSelectedDate(newDate); // Set the Date object directly, not a string
-      
-      setShowDatepicker(false);
-    };
-    
+  const setDateValue = (date) => () => {
+    const newDate = new Date(
+      datepickerHeaderDate.getFullYear(),
+      datepickerHeaderDate.getMonth(),
+      date
+    );
 
-
+    setSelectedDate(newDate);
+    onDateChange(newDate);
+    setShowDatepicker(false);
+  };
 
   const getDayCount = (date) => {
     let daysInMonth = getDaysInMonth(date);
@@ -119,7 +115,7 @@ export default function DatePicker() {
             className="cursor-pointer absolute top-0 right-0 px-3 py-3"
             onClick={toggleDatepicker}
           >
-  <img src={datePickerCalendar} className="w-5" alt="" />
+            <img src={datePickerCalendar} className="w-5" alt="" />
           </div>
           {showDatepicker && (
             <div
@@ -187,12 +183,16 @@ export default function DatePicker() {
                           className="px-1 mb-2"
                         >
                           <button
-                            disabled={isPastDate}
+                            // disabled={isPastDate}
                             onClick={setDateValue(d)}
                             className={`cursor-pointer text-center text-sm leading-none rounded-full transition ease-in-out duration-100 
-          ${isToday(d) ? "text-[white] bg-[#181818] w-6 shadow-2xl flex items-center justify-center h-6 rounded-full text-xs " : "hover:text-[#4f4f4f]"} 
+          ${
+            isToday(d)
+              ? "text-[white] bg-[#181818] w-6 shadow-2xl flex items-center justify-center h-6 rounded-full text-xs "
+              : "hover:text-[#4f4f4f]"
+          } 
           ${getDay(dateToCheck) === 0 ? "text-red-500" : ""} 
-          ${isPastDate ? "opacity-50 cursor-not-allowed" : ""}
+          ${isPastDate ? " cursor-not-allowed" : ""}
         `}
                           >
                             {d}
@@ -232,7 +232,7 @@ export default function DatePicker() {
                       </div>
                     ))}
                 </div>
-              )}{" "}            
+              )}{" "}
             </div>
           )}
         </div>

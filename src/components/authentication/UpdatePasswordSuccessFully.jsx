@@ -27,7 +27,10 @@ const UpdatePasswordSuccessfully = ({ isOpen, setIsOpen, update }) => {
     >
       <div className="bg-white rounded-[16px] shadow-lg  py-2 px-2 flex flex-col justify-center gap-3 w-[400px]  h-[250px] text-center">
         <div className="flex justify-end">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button onClick={() => {
+            setIsOpen(!isOpen)
+            navigate("/auth/login");
+            }}>
             <IoMdClose size={25} />
           </button>
         </div>

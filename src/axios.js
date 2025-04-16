@@ -5,7 +5,7 @@ import { UAParser } from "ua-parser-js";
 import { v4 as uuidv4 } from "uuid";
 // import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
-export const baseUrl = "https://necessi.erdumadnan.com/api";
+export const baseUrl = "http://3.17.215.238/";
 // export const baseUrl = "https://155e-45-199-187-86.ngrok-free.app";
 
 // async function getDeviceFingerprint() {
@@ -81,7 +81,7 @@ instance.interceptors.response.use(
       Cookies.remove("token");
       Cookies.remove("user");
       ErrorToast("Session expired. Please relogin");
-      // window.location.href = "/";
+      window.location.href = "/";
     }
 
     return Promise.reject(error);

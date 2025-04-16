@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router";
 import { ErrorToast } from "../components/global/Toaster";
+import Cookies from "js-cookie";
 
 export const processSignup = (data, navigate) => {
   if (data?.success) {
@@ -10,7 +10,9 @@ export const processSignup = (data, navigate) => {
 
 export const processLogin = (data, navigate) => {
   if (data?.success) {
-    navigate("/app/dashboard");
+    Cookies.set("token", data?.data?.token, { expires: 7 });
+    Cookies.set("admin", JSON.stringify(data?.data.admin), { expires: 7 });
+    navigate("/dashboard");
     return;
   }
 };

@@ -1,8 +1,10 @@
 import React from "react";
 import { IoLogOut } from "react-icons/io5";
 import { useNavigate } from "react-router";
+import { useLogout } from "../../hooks/api/Post";
 const LogOutModal = ({isOpen, setIsOpen}) => {
   const navigate = useNavigate("");
+  const {loading,postData}=useLogout()
   return (
     isOpen && (
       <div className="w-screen h-screen flex items-center justify-center bg-[rgba(0,0,0,0.4)] fixed top-0 left-0 right-0 bottom-0 z-30 px-4">
@@ -27,7 +29,8 @@ const LogOutModal = ({isOpen, setIsOpen}) => {
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  navigate("/auth/login");
+                  postData()
+                  navigate("auth/logout");
                 }}
                 className="w-[180px] h-[50px] rounded-[14px] bg-[#181818] text-white flex gap-2 items-center justify-center text-md font-medium"
               >

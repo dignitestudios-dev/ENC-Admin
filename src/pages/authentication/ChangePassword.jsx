@@ -9,25 +9,47 @@ import UpdatePasswordSuccessfully from "../../components/authentication/UpdatePa
 import { useNavigate } from "react-router";
 import { ChangedValues } from "../../init/authentication/LoginValues";
 import { ChangedSchema } from "../../schema/authentication/LoginSchema";
+import { processError } from "../../lib/utils";
+import { useResetPassword } from "../../hooks/api/Post";
+import { FiLoader } from "react-icons/fi";
 
 export default function ChangePassword() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate("");
+  const { loading, postData } = useResetPassword();
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
     useFormik({
       initialValues: ChangedValues,
       validationSchema: ChangedSchema,
       validateOnChange: true,
       validateOnBlur: true,
-      onSubmit: async (values, action) => {
-        // navigate("/auth/login");
-        setIsOpen(true);
-        const data = {};
+      onSubmit: async (values, action) => {   
+        const data = {
+          password: values?.password,
+        };
+
+        try {
+          const res = await postData(
+            "auth/updatePassword",
+            false,
+            null,
+            data,
+            ""
+          );
+          if (res?.success) {
+            setIsOpen(true); 
+          } else {
+            processError("Failed to update password. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error while updating password", error);
+          processError("An error occurred while updating password.");
+        }
       },
     });
   return (
-    <div className="w-full h-full  grid grid-cols-2   rounded-[19px] bg-white">
-      <div className="flex justify-center flex-col items-center">
+    <div className="w-full h-full  md:grid grid-cols-2 items-center   rounded-[19px] bg-white">
+      <div className="flex justify-center px-6 md:px-0 flex-col items-center">
         <form
           onSubmit={handleSubmit}
           className="w-full md:w-[393px] mt-5 flex flex-col justify-start items-start gap-4"
@@ -70,10 +92,11 @@ export default function ChangePassword() {
             className="w-full h-[49px] rounded-[10px] bg-[#000000] text-white flex gap-2 items-center justify-center text-md font-medium"
           >
             <span>Update</span>
+                  {loading && <FiLoader className="animate-spin text-lg " />}
           </button>
         </form>
       </div>
-      <div className="h-full w-full bg-[#EDEDED]"></div>
+      <div className="h-full w-full hidden md:flex bg-[#EDEDED]"></div>
 
       <UpdatePasswordSuccessfully isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>

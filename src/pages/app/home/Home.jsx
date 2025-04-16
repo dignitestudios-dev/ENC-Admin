@@ -1,14 +1,16 @@
 // import { NavLink } from "react-router";
+import { useState } from "react";
 import RevenueChart from "../../../components/app/dashboard/Graph";
 import Insight from "../../../components/app/dashboard/Insight";
 // import { appointments, newUsers } from "../../../static/Users";
 
 const Home = () => {
+  const [isInsights,setIsInsights]=useState({});
   return (
     <div>
       <h3 className="font-[600] text-[32px] mb-6 -tracking-[0.11px]">Dashboard</h3>
-      <Insight />
-      <RevenueChart/>
+      <Insight  isInsights={isInsights}/>
+      <RevenueChart setIsInsights={setIsInsights}/>
       {/* <div className="grid gap-6 lg:grid-cols-12 mt-10 mb-10">
         <div className="border col-span-3 px-3 py-5 bg-white rounded-[13px] shadow-[0px_0.84px_2.52px_0px_#0000001A]">
           <div>

@@ -44,7 +44,7 @@ const DashboardLayout = () => {
             onClick={() => setIsOpen((prev) => !prev)}
             className="lg:hidden block"
           >
-            <HiOutlineMenuAlt2 className="text-2xl ml-2" color="white" />
+            <HiOutlineMenuAlt2 className="text-2xl ml-2"  />
           </button>
           <Navbar />
         </div>

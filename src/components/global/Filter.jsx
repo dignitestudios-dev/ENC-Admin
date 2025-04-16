@@ -3,11 +3,12 @@ import { filterIcon } from "../../assets/export";
 import DatePicker from "./DatePicker";
 import { useState } from "react";
 
-export default function Filter() {
+export default function Filter({startDate,endDate,setStartDate,setEndDate}) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="relative">
-      <button onClick={()=>setIsOpen(!isOpen)} >
+      <button onClick={() => setIsOpen(!isOpen)}>
         {" "}
         <img className="w-20" src={filterIcon} alt="filterIcon" />{" "}
       </button>
@@ -15,7 +16,7 @@ export default function Filter() {
         <div className="bg-[#FFFFFF] absolute right-0 z-10 w-[400px] rounded-[13px] shadow-[2px_10px_27px_0px_#00000012] px-3 py-3 ">
           <div className="flex justify-between border-b">
             <h3>Filter</h3>
-            <button onClick={()=>setIsOpen(!isOpen)} >
+            <button onClick={() => setIsOpen(!isOpen)}>
               <FaXmark />
             </button>
           </div>
@@ -25,7 +26,10 @@ export default function Filter() {
                 <label htmlFor="" className="font-[500] text-[14px] ">
                   Start Date
                 </label>
-                <DatePicker />
+                <DatePicker
+                  selectDate={startDate}
+                  onDateChange={(date) => setStartDate(date)}
+                />
               </div>
             </div>
             <div>
@@ -33,7 +37,10 @@ export default function Filter() {
                 <label htmlFor="" className="font-[500] text-[14px] ">
                   End Date
                 </label>
-                <DatePicker />
+                <DatePicker
+                  selectDate={endDate}
+                  onDateChange={(date) => setEndDate(date)}
+                />
               </div>
             </div>
           </div>
@@ -41,13 +48,12 @@ export default function Filter() {
             <button className="bg-[#DCDCDC] text-[#6A6A6A] text-[16px] font-[500] rounded-[8px] w-full h-[50px]">
               Clear
             </button>
-            <button className="bg-[#181818] text-white rounded-[8px] w-full h-[50px]">
+            <button  onClick={() => setIsOpen(!isOpen)} className="bg-[#181818] text-white rounded-[8px] w-full h-[50px]">
               Apply
             </button>
           </div>
         </div>
       )}
-  
     </div>
   );
 }

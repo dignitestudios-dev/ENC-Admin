@@ -5,19 +5,23 @@ import Pagination from "../../global/Pagination";
 import { NavLink } from "react-router";
 import { useUsers } from "../../../hooks/api/Get";
 import { FiLoader } from "react-icons/fi";
+import { formatDate } from "../../../lib/helpers";
 
-export default function UserList() {
+export default function ContactList() {
   const [pageNo, setPageNo] = useState(1);
   const [search, setSearch] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const { loading, data, pagination } = useUsers(
-    `users/all`,
+    `landing/contact`,
     pageNo,
     search,
     startDate,
     endDate
   );
+
+  console.log(data, "daatacines");
+
   return (
     <div className="border px-3 py-3 col-span-9 rounded-[13px] bg-white shadow-[0px_0.84px_2.52px_0px_#0000001A]">
       <div className="pb-1 flex items-center justify-between">
@@ -55,19 +59,20 @@ export default function UserList() {
             <thead className="text-[12px] font-[600] capitalize text-[#787F8C] bg-[#F3F5F7]">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  User Name
+                  Full Name
+                </th>
+
+                <th scope="col" className="px-6 py-3">
+                  Phone
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Email Address
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joining Date
+                  Message
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joining Time
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Action
+                  Date
                 </th>
               </tr>
             </thead>
@@ -76,25 +81,16 @@ export default function UserList() {
                 <tr key={i}>
                   <th scope="row" className="px-3 py-4 whitespace-nowrap">
                     <div className="flex gap-2 items-center">
-                      <img
-                        src={item?.profilePicture}
-                        alt=""
-                        className="w-6 h-6 rounded-full"
-                      />
-                      <p className="font-[400] text-[13px]">{item?.name}</p>
+                      <p className="font-[400] text-[13px]">
+                        {item?.firstName + " " + item?.lastName}
+                      </p>
                     </div>
                   </th>
+                  <td className="px-6 py-4">{item?.phone}</td>
                   <td className="px-6 py-4">{item?.email}</td>
-                  <td className="px-6 py-4">{item?.joiningDate}</td>
-                  <td className="px-6 py-4">{item?.joiningTime}</td>
+                  <td className="px-6 py-4">{item?.message}</td>
                   <td className="px-6 py-4">
-                    <NavLink
-                      to={`/user/${item?._id}`}
-                      state={item}
-                      className="text-[#181818] underline font-[400] text-[13px]"
-                    >
-                      View details
-                    </NavLink>
+                    {formatDate(new Date(item?.createdAt))}
                   </td>
                 </tr>
               ))}

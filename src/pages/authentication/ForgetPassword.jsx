@@ -5,28 +5,31 @@ import { forgotSchema } from "../../schema/authentication/LoginSchema";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input from "../../components/global/Input";
 import { useNavigate } from "react-router";
+import { useForgetPassword } from "../../hooks/api/Post";
+import { FiLoader } from "react-icons/fi";
 export default function ForgetPassword() {
   const navigate=useNavigate("");
+  const { forgetLoader, postData } = useForgetPassword();
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
-    useFormik({
-      initialValues: forgetValues,
-      validationSchema: forgotSchema,
-      validateOnChange: true,
-      validateOnBlur: true,
-      onSubmit: async (values, action) => {
-        const data = {
-          email: values?.email,
-        };
-        navigate("/auth/verify-otp");
-        // postData("/admin/login", false, null, data, processLogin);
-      },
-    });
+  useFormik({
+    initialValues: forgetValues,
+    validationSchema: forgotSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
+    onSubmit: async (values, action) => {
+      const data = {
+        email: values?.email,
+        role:"admin"
+      };
+      postData("auth/forgot", false, null, data, "");
+    },
+  });
    
 
 
   return (
-    <div className="w-full h-full  grid grid-cols-2   rounded-[19px] bg-white">
-      <div className="flex justify-center flex-col items-center">
+    <div className="w-full h-full  grid  md:grid-cols-2    rounded-[19px] bg-white">
+      <div className="flex justify-center px-6 md:px-0 flex-col items-center">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -62,11 +65,11 @@ export default function ForgetPassword() {
             className="w-full h-[49px] rounded-[8px] bg-[#000000] text-white flex gap-2 items-center justify-center text-md font-medium"
           >
             <span>Next</span>
-            {/* {<FiLoader className="animate-spin text-lg " />} */}
+             {forgetLoader && <FiLoader className="animate-spin text-lg " />}
           </button>
         </form>
       </div>
-      <div className="h-full w-full bg-[#EDEDED]"></div>
+      <div className="h-full w-full hidden md:flex bg-[#EDEDED]"></div>
     </div>
   );
 }

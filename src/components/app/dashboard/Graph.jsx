@@ -1,13 +1,19 @@
 import { useRef, useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import Filter from "../../global/Filter";
+import { useUsers } from "../../../hooks/api/Get";
 
-const RevenueChart = () => {
+const RevenueChart = ({setIsInsights}) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [activePoint, setActivePoint] = useState(null);
-
-  const data = {
+  const { loading, data, pagination } = useUsers(`admin`,1);
+  const {graph,stats}=data; 
+  useEffect(()=>{
+    setIsInsights(stats);
+  },[data])
+  console.log(stats,"graphData");
+  const Graphdata = {
     labels: [
       "JAN",
       "FEB",
@@ -25,10 +31,7 @@ const RevenueChart = () => {
     datasets: [
       {
         label: "Sales",
-        data: [
-          85000, 100000, 95000, 105000, 90000, 80000, 110000, 90000, 85000,
-          115000, 120000, 140000,
-        ],
+        data: graph?.earnings,
         borderColor: "#000",
         backgroundColor: "rgba(0, 0, 0, 0)",
         tension: 0.4,
@@ -42,6 +45,7 @@ const RevenueChart = () => {
   };
 
   useEffect(() => {
+   
     if (chartRef.current) {
       // Destroy previous chart instance if it exists
       if (chartInstance.current) {
@@ -52,7 +56,7 @@ const RevenueChart = () => {
       const ctx = chartRef.current.getContext("2d");
       chartInstance.current = new Chart(ctx, {
         type: "line",
-        data: data,
+        data: Graphdata,
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -109,12 +113,12 @@ const RevenueChart = () => {
           onHover: (event, elements) => {
             if (elements && elements.length) {
               const pointIndex = elements[0].index;
-              console.log(data.labels[pointIndex], "data");
+              console.log(graph?.months[pointIndex], "data");
 
               setActivePoint({
                 index: pointIndex,
                 value: data.datasets[0].data[pointIndex],
-                label: data.labels[pointIndex],
+                label: graph?.months[pointIndex],
               });
             } else {
               setActivePoint(null);
@@ -157,10 +161,10 @@ const RevenueChart = () => {
               left: `${
                 activePoint.label == "JAN"
                   ? ` calc(${
-                      (activePoint.index / (data.labels.length - 1)) * 100
+                      (activePoint.index / (graph.months.length - 1)) * 100
                     }% - 2 0px)`
                   : `calc(${
-                      (activePoint.index / (data.labels.length - 1)) * 100
+                      (activePoint.index / (graph.months.length - 1)) * 100
                     }% - 125px)`
               } `,
               top: "30%",
