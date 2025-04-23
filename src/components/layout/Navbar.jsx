@@ -4,9 +4,11 @@ import { useState } from "react";
 import ProfileDropdown from "../global/ProfileDropdown";
 import { beardGuy } from "../../assets/export";
 import Cookies from "js-cookie";
+import LogOutModal from "../authentication/LogOutModal";
 const Navbar = () => {
   
   const [isProfileOpen, setisProfileOpen] = useState(false);
+  const [isLogout, setIsLogout] = useState(false);
   const admin = JSON.parse(Cookies.get("admin")||null);
   console.log(admin);
   
@@ -42,6 +44,8 @@ const Navbar = () => {
           <ProfileDropdown />
         </div>
       )}
+
+<LogOutModal isOpen={isLogout} setIsOpen={setIsLogout} />
     </div>
   );
 };
