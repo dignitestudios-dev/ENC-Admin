@@ -71,7 +71,7 @@ export default function TimeSlots() {
             + Add New Slots
           </div>
         </div>
-        {data.length > 0 && (
+        {data?.length > 0 && (
           <div className="h-full max-h-[180px] my-2 px-2 overflow-auto">
             {data?.map((item, index) => (
               <div

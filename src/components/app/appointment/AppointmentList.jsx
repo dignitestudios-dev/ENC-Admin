@@ -7,6 +7,7 @@ import { useUsers } from "../../../hooks/api/Get";
 import { useState } from "react";
 import { FiLoader } from "react-icons/fi";
 import { formatDate, formatTime, formatTimeRange } from "../../../lib/helpers";
+import { circle } from "../../../assets/export";
 
 export default function AppointmentList() {
   const [pageNo, setPageNo] = useState(1);
@@ -88,7 +89,7 @@ export default function AppointmentList() {
                     >
                       <div className="flex gap-2 items-center">
                         <img
-                          src={item?.user?.profilePicture}
+                          src={item?.user?.profilePicture?item?.user?.profilePicture:circle}
                           className="rounded-full h-10 w-10"
                           alt=""
                         />

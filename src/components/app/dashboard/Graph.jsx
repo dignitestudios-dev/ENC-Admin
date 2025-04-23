@@ -8,7 +8,7 @@ const RevenueChart = ({setIsInsights}) => {
   const chartInstance = useRef(null);
   const [activePoint, setActivePoint] = useState(null);
   const { loading, data, pagination } = useUsers(`admin`,1);
-  const {graph,stats}=data; 
+  const {graph,stats}=data??[]; 
   useEffect(()=>{
     setIsInsights(stats);
   },[data])

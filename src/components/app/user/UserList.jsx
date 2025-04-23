@@ -5,6 +5,7 @@ import Pagination from "../../global/Pagination";
 import { NavLink } from "react-router";
 import { useUsers } from "../../../hooks/api/Get";
 import { FiLoader } from "react-icons/fi";
+import { circle } from "../../../assets/export";
 
 export default function UserList() {
   const [pageNo, setPageNo] = useState(1);
@@ -77,8 +78,13 @@ export default function UserList() {
                   <th scope="row" className="px-3 py-4 whitespace-nowrap">
                     <div className="flex gap-2 items-center">
                       <img
-                        src={item?.profilePicture}
+                        src={
+                          item?.user?.profilePicture
+                            ? item?.user?.profilePicture
+                            : circle
+                        }
                         alt=""
+                        
                         className="w-6 h-6 rounded-full"
                       />
                       <p className="font-[400] text-[13px]">{item?.name}</p>
