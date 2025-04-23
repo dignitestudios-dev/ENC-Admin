@@ -25,7 +25,7 @@ export default function ContactList() {
   return (
     <div className="border px-3 py-3 col-span-9 rounded-[13px] bg-white shadow-[0px_0.84px_2.52px_0px_#0000001A]">
       <div className="pb-1 flex items-center justify-between">
-        <h3 className="text-[32px] font-[600] ">Users Management</h3>
+        <h3 className="text-[32px] font-[600] ">Contacts Management</h3>
         <Filter
           startDate={startDate}
           endDate={endDate}
