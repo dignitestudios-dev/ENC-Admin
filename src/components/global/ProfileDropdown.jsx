@@ -6,7 +6,7 @@ export default function ProfileDropdown({setIsLogout,isLogout}) {
   return (
     <div>
       <div>
-        <NavLink to={'/updatePassword'} className="text-white text-[14px] font-[500]">
+        <NavLink to={'/update-password'} className="text-white text-[14px] font-[500]">
           Change Password
         </NavLink>
       </div>
