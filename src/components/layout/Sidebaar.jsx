@@ -2,23 +2,21 @@ import { NavLink, useLocation } from "react-router";
 import { sidebarData } from "../../static/Sidebar";
 import { Logo, logoutIcon } from "../../assets/export";
 import { IoMdClose } from "react-icons/io";
-import { IoLogOut } from "react-icons/io5";
-import LogOutModal from "../authentication/LogOutModal";
-import { useState } from "react";
 
-const Sidebaar = ({ toggleModal,setIsOpen }) => {
+import { FaBlog } from "react-icons/fa";
+const Sidebaar = ({ toggleModal, setIsOpen }) => {
   const location = useLocation();
-  
+
   console.log(location, "location");
 
   return (
     <div className="w-full h-full overflow-y-auto px-5 py-3 flex flex-col gap-3 ">
-      <div className="flex justify-end px-4" >
+      <div className="flex justify-end px-4">
         <button
-          onClick={() =>{
-            toggleModal()
-            alert("hi")
-            }}
+          onClick={() => {
+            toggleModal();
+            alert("hi");
+          }}
           className="lg:hidden block"
         >
           <IoMdClose className="text-2xl" color="white" />
@@ -34,7 +32,7 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
       </div>
       {sidebarData?.map((sidebar) => {
         return (
-          <NavLink 
+          <NavLink
             key={sidebar?.link}
             className={({ isActive }) =>
               isActive
@@ -43,23 +41,36 @@ const Sidebaar = ({ toggleModal,setIsOpen }) => {
             }
             to={sidebar?.link}
           >
-            <img
-              src={
-                location?.pathname == sidebar.link
-                  ? sidebar?.whiteIcon
-                  : sidebar?.icon
-              }
-              className="w-4 "
-              alt=""
-            />
+            {sidebar?.title == "Blogs" ? (
+              <FaBlog
+                size={22}
+                color={`${
+                  location?.pathname == sidebar.link ? "white" : "black"
+                }`}
+              />
+            ) : (
+              <img
+                src={
+                  location?.pathname == sidebar.link
+                    ? sidebar?.whiteIcon
+                    : sidebar?.icon
+                }
+                className="w-4 "
+                alt=""
+              />
+            )}
             <span>{sidebar?.title}</span>
           </NavLink>
         );
       })}
-        <NavLink onClick={()=>setIsOpen(true)} className={"text-sm w-full h-12 flex items-center gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"}>
-          <img src={logoutIcon} className="w-4 " alt="loguticon" /> Logout
-          </NavLink>
-
+      <NavLink
+        onClick={() => setIsOpen(true)}
+        className={
+          "text-sm w-full h-12 flex items-center gap-5 px-3 justify-start rounded-[4px] font-medium  text-[#181818]"
+        }
+      >
+        <img src={logoutIcon} className="w-4 " alt="loguticon" /> Logout
+      </NavLink>
     </div>
   );
 };

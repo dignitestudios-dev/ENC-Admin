@@ -1,5 +1,6 @@
 import Appointment from "../../pages/app/appointment/Appointment";
 import AppointmentDetail from "../../pages/app/appointment/AppointmentDetail";
+import Blog from "../../pages/app/blog/Blog";
 import Contact from "../../pages/app/Contact/Contacts";
 import Home from "../../pages/app/home/Home";
 import TimeSlots from "../../pages/app/timeslot/TimeSlots";
@@ -49,6 +50,12 @@ export const AppRoute = [
     url: "update-password",
     page: <UpdatePassword />,
     name: "updatePassword",
+    isPublic: true,
+  },
+  {
+    url: "blog",
+    page: <Blog />,
+    name: "blog",
     isPublic: true,
   },
   {

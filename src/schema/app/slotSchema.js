@@ -23,3 +23,9 @@ export const priceSchema = Yup.object({
     .typeError("Price must be a number") // Ensures it's treated as a number
     .positive("Price must be a positive number"), // Optional: ensures the number is positive
 });
+
+export const blogSchema = Yup.object({
+  media: Yup.mixed().required("Please enter your Profile Picture."),
+  title: Yup.string().required("Title is required"),
+  content: Yup.string().required("Content is required"),
+});

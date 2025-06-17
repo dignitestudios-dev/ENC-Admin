@@ -32,6 +32,12 @@ export const sidebarData = [
     whiteIcon:darkContact,
     link: "/contact",
   }, 
+  {
+    title: "Blogs",
+    icon: lightContact,
+    whiteIcon:darkContact,
+    link: "/blog",
+  }, 
   
   {
     title: "Update Password",

@@ -27,7 +27,7 @@ function App() {
       </Route>
 
       <Route path="auth" element={<AuthLayout />}>
-        {AuthRoute?.map((Link, i) => (
+        {AuthRoute?.map((Link , i) => (
           <Route path={Link.url} key={i} element={Link.page} />
         ))}
       </Route>

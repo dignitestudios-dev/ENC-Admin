@@ -147,8 +147,8 @@ export default function TimeSlots() {
 
         <TimeSlotModal
           isOpen={isOpen}
-          setTimeSlots={setTimeSlots}
           setIsOpen={setIsOpen}
+          setTimeSlots={setTimeSlots}
           reload={reload}
           setReload={setReload}
         />

@@ -15,7 +15,7 @@ export default function Input({
 }) {
   const [isPassVisible, setIsPassVisible] = useState(false);
   return (
-    <div className="w-full h-auto flex flex-col justify-start items-start gap-1">
+    <div className="w-full h-auto mt-4 flex flex-col justify-start items-start gap-1">
       <label htmlFor="" className="font-[700] capitalize text-[12px]">
         {text}
       </label>
