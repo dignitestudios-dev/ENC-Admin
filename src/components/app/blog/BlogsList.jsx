@@ -5,12 +5,18 @@ import { useState } from "react";
 import { FiLoader } from "react-icons/fi";
 import AddBlog from "./AddBlog";
 import { useDeleteSlot } from "../../../hooks/api/Delete";
+import DeleteBlogModal from "./DeleteBlogModal";
+import UpdateBlog from "./UpdateBlog";
 
 export default function BlogsList() {
   const [pageNo, setPageNo] = useState(1);
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [UpdateId, setUpdateId] = useState(false);
   const [isDeleteId, setDeleteId] = useState("");
+  const [isUpdateData, setUpdateData] = useState({});
   const { loading, data, pagination, setReload, reload } = useUsers(
     `blogs`,
     pageNo,
@@ -22,6 +28,7 @@ export default function BlogsList() {
     if (!id) return;
     const url = `blogs/${id}`;
     deleteData(url, setReload, reload);
+    setIsDelete(false);
   };
   return (
     <div className="border px-3 py-3 col-span-9 rounded-[13px] bg-white shadow-[0px_0.84px_2.52px_0px_#0000001A]">
@@ -81,15 +88,25 @@ export default function BlogsList() {
                         dangerouslySetInnerHTML={{ __html: blog.content }}
                       />
                       <div className="flex items-center gap-4 mt-3">
-                        <button className="bg-[#181818] py-2 px-3 text-white w-full rounded-md">
+                        <button
+                          onClick={() => {
+                            setUpdateData(blog)
+                            setUpdateId(blog._id);
+                            setIsUpdate(true);
+                          }}
+                          className="bg-[#181818] py-2 px-3 text-white w-full rounded-md"
+                        >
                           Update
                         </button>
                         <button
-                          onClick={() => handleDelete(blog?._id)}
+                          onClick={() => {
+                            setDeleteId(blog._id);
+                            setIsDelete(true);
+                          }}
                           className="bg-red-500 py-2 px-3 text-white w-full rounded-md flex items-center justify-center gap-3"
                         >
                           Delete{" "}
-                          {deleteLoading && isDeleteId == blog?._id && (
+                          {deleteLoading && isDeleteId === blog._id && (
                             <FiLoader className="animate-spin text-lg " />
                           )}
                         </button>
@@ -112,6 +129,15 @@ export default function BlogsList() {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
+      <UpdateBlog
+        isReload={reload}
+        setIsReload={setReload}
+        isOpen={isUpdate}
+        item={isUpdateData}
+        setItem={setUpdateData}
+        setIsOpen={setIsUpdate}
+        updateId={UpdateId}
+      />
       <div className="flex w-full justify-end">
         <Pagination
           currentPage={pageNo}
@@ -119,6 +145,13 @@ export default function BlogsList() {
           onPageChange={setPageNo}
         />
       </div>
+      <DeleteBlogModal
+        deleteLoading={deleteLoading}
+        handleDelete={handleDelete}
+        isOpen={isDelete}
+        isDeleteId={isDeleteId}
+        setIsOpen={setIsDelete}
+      />
     </div>
   );
 }

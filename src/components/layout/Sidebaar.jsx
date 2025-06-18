@@ -6,9 +6,6 @@ import { IoMdClose } from "react-icons/io";
 import { FaBlog } from "react-icons/fa";
 const Sidebaar = ({ toggleModal, setIsOpen }) => {
   const location = useLocation();
-
-  console.log(location, "location");
-
   return (
     <div className="w-full h-full overflow-y-auto px-5 py-3 flex flex-col gap-3 ">
       <div className="flex justify-end px-4">
@@ -43,9 +40,9 @@ const Sidebaar = ({ toggleModal, setIsOpen }) => {
           >
             {sidebar?.title == "Blogs" ? (
               <FaBlog
-                size={22}
+                size={20}
                 color={`${
-                  location?.pathname == sidebar.link ? "white" : "black"
+                  location?.pathname == sidebar.link ? "white" : "#929292"
                 }`}
               />
             ) : (
