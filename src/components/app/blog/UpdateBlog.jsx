@@ -39,7 +39,9 @@ export default function UpdateBlog({
     enableReinitialize: true,
     onSubmit: async (values) => {
       const form = new FormData();
-      form.append("media", values.media);
+      if (values.media instanceof File) {
+        form.append("media", values.media);
+      }
       form.append("title", values.title);
       form.append("content", values.content);
       const updateProfileResponse = await postData(
